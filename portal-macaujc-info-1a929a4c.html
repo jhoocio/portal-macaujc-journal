@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息卡片｜了解澳门六合彩用途</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafaf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1d1d1f;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Hero 主视觉 */
+    .hero {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 2.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #1b1b1b;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #5c5c5e;
+      max-width: 550px;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border-color: #e0dfdf;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 540;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-title::before {
+      content: '';
+      display: inline-block;
+      width: 0.45rem;
+      height: 0.45rem;
+      background: #c7b89c;
+      border-radius: 50%;
+      margin-right: 0.25rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.97rem;
+      color: #3e3e40;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.25rem;
+    }
+
+    .card ul li {
+      padding: 0.15rem 0;
+      position: relative;
+      padding-left: 1.3rem;
+    }
+
+    .card ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #b0a187;
+    }
+
+    /* 自然链接段落 */
+    .link-note {
+      background: transparent;
+      border-left: 3px solid #d4c9b9;
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 2.6rem;
+      font-size: 0.98rem;
+      color: #2d2d30;
+      line-height: 1.75;
+    }
+
+    .link-note a {
+      color: #3d3a34;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px solid #b5aa99;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .link-note a:hover {
+      border-bottom-color: #2c2824;
+    }
+
+    /* 适合人群卡片特别样式 */
+    .card.audience {
+      background: #f7f6f3;
+      border: 1px solid #e6e2da;
+    }
+
+    .card.audience .card-title::before {
+      background: #9b8e7a;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      margin-top: 2.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.15rem;
+      font-weight: 520;
+      margin-bottom: 1rem;
+      color: #2a2825;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eae8e4;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 480;
+      font-size: 1rem;
+      color: #1e1c19;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #545250;
+      margin-left: 0.6rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 3.5rem;
+      font-size: 0.82rem;
+      color: #8c8a86;
+      text-align: center;
+      border-top: 1px solid #e6e4df;
+      padding-top: 1.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 1.2rem 1.2rem;
+      }
+      .link-note {
+        padding: 1rem 1rem;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero 主视觉 -->
+    <div class="hero">
+      <h1>澳门六合彩 · 信息卡片</h1>
+      <div class="sub">快速识别网站用途，了解它的主要面向与场景</div>
+    </div>
+
+    <!-- 信息卡片网格 -->
+    <div class="card-grid">
+
+      <!-- 卡片 1：主视觉 / 用途概览 -->
+      <div class="card">
+        <div class="card-title">网站主视觉与用途</div>
+        <p>这个网站围绕<strong>澳门六合彩</strong>搭建，提供相关的资讯与参考内容。页面结构清晰，适合想快速获取澳门六合彩基础信息、历史动态或归纳整理的人浏览。没有多余装饰，内容直接呈现。</p>
+      </div>
+
+      <!-- 卡片 2：典型用途卡片 -->
+      <div class="card">
+        <div class="card-title">常见用途</div>
+        <ul>
+          <li>了解澳门六合彩的基本规则与背景</li>
+          <li>查看往期记录与相关汇总</li>
+          <li>作为信息参考，辅助个人判断</li>
+          <li>保持对动态的简单关注</li>
+        </ul>
+      </div>
+
+      <!-- 卡片 3：适合人群 -->
+      <div class="card audience">
+        <div class="card-title">适合人群</div>
+        <p>对澳门六合彩有兴趣、希望有一个信息来源可供查阅的人。不论是想初步了解，还是已有一定认知、需要一处稳定页面作为参照，这个站点都提供了一种轻量选择。不适合寻求投注建议或游戏指导的用户。</p>
+      </div>
+
+    </div>
+
+    <!-- 自然链接段落（嵌入 a 标签） -->
+    <div class="link-note">
+      网站上关于<strong>澳门六合彩</strong>的内容集中在资讯与记录层面，如果你想直接访问该站点，可以前往 
+      <a href="https://portal--macaujc.com">澳门六合彩</a> 
+      浏览。页面保持简洁，没有弹窗或强制跳转，适合安安静静翻阅。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h2>常见疑问·简要</h2>
+      <div class="faq-item">
+        <div class="faq-q">这个网站提供投注服务吗？</div>
+        <div class="faq-a">不提供。它是一个信息展示页面，不涉及任何在线交易或游戏入口。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容更新频率如何？</div>
+        <div class="faq-a">根据站内信息节奏更新，以参考性内容为主，非实时动态。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否需要注册或登录？</div>
+        <div class="faq-a">不需要。页面完全开放，直接访问即可阅读。</div>
+      </div>
+    </div>
+
+    <!-- 末尾提示 -->
+    <div class="footer-note">
+      保持理性 · 资讯类页面仅供了解参考
+    </div>
+
+  </div>
+</body>
+</html>
