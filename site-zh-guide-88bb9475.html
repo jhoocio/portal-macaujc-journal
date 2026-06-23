@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 日常查询与延伸阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9fafb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.65;
+      padding: 1.5rem;
+    }
+
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #0f172a;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #475569;
+      max-width: 550px;
+    }
+
+    .hero .accent-line {
+      width: 48px;
+      height: 4px;
+      background: #0f172a;
+      margin: 1.5rem 0 1rem;
+      border-radius: 4px;
+    }
+
+    /* section general */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin: 1.2rem 0 0.4rem;
+      color: #1e293b;
+    }
+
+    p, li {
+      color: #334155;
+      margin-bottom: 0.6rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e9edf2;
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      flex: 1 1 180px;
+      transition: box-shadow 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .card strong {
+      display: block;
+      font-weight: 550;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 0;
+    }
+
+    /* 说明区域 */
+    .note-block {
+      background: #ffffff;
+      border: 1px solid #e9edf2;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      margin: 1rem 0;
+    }
+
+    .note-block p {
+      margin-bottom: 0.5rem;
+    }
+
+    .note-block .meta {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 1rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid #edf2f7;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* 底部 */
+    .footer-links {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.8rem;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      color: #1e293b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #0f172a;
+    }
+
+    .footer-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    a {
+      color: #1e293b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: opacity 0.1s;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .card {
+        flex: 1 1 auto;
+      }
+      .note-block {
+        padding: 1.2rem;
+      }
+      body {
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="accent-line"></div>
+    <h1>日常查询 · 对照 · 延伸阅读</h1>
+    <p>一个更安静的出发点：在信息之间建立参照，在阅读中自然延伸。不再被推送裹挟，而是主动索引、对比、停留。</p>
+  </div>
+
+  <!-- 优势区 -->
+  <section>
+    <h2>为什么需要一种新的阅读节奏</h2>
+    <div class="card-grid">
+      <div class="card">
+        <strong>多源对照</strong>
+        <p>同一话题的不同表述并置呈现，减少单一信源带来的盲区。适合需要快速建立认知轮廓的时刻。</p>
+      </div>
+      <div class="card">
+        <strong>轻量查询</strong>
+        <p>不依赖重交互，页面结构清晰，适合反复回来检索、核对某个具体信息点。</p>
+      </div>
+      <div class="card">
+        <strong>克制延伸</strong>
+        <p>每段内容都留有余地，不强制消费注意力。感兴趣的线索可以自己继续探索。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明区：日常场景 -->
+  <section>
+    <h2>在一些具体场景里</h2>
+    <div class="note-block">
+      <p><strong>阅读一篇人物特稿时</strong>，想快速对照其中提到的背景事件、关键日期或机构名称。打开 <a href="https://site-zh-leyu.com">乐鱼</a> 作为参照面板，把模糊的细节放进搜索框，或直接浏览相关条目——不必离开当前页面，就能获得上下文。</p>
+      <p><strong>写东西写到一半</strong>，忽然需要确认某个概念的常见译法、使用语境或典型例句。比起翻找 bookmark 或切换到社交平台，更适合在一个没有动态通知的环境里完成验证。</p>
+      <p><strong>睡前准备明天的简报</strong>，想把几篇长文里的核心数据、立场倾向、时间线各自摘出来并排比较。乐鱼的页面结构恰好适合这种「摘录‑陈列‑对照」的流程，不需要额外的笔记软件。</p>
+      <div class="meta">以上场景均来源于日常使用反馈，不作夸大承诺。</div>
+    </div>
+  </section>
+
+  <!-- FAQ 摘要 -->
+  <section>
+    <h2>一些常被问到的</h2>
+    <div class="faq-item">
+      <div class="q">乐鱼和搜索引擎有什么区别？</div>
+      <div class="a">搜索引擎倾向于呈现大量结果让你自己筛选；乐鱼更侧重<strong>内容的集中对照与延伸</strong>，页面本身经过整理，适合边读边查，而不是跳转大量新标签页。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">是否提供分类或专题内容？</div>
+      <div class="a">目前内容以日常查询中高频出现的条目为主，涵盖人物、事件、概念、作品等。分类结构正在迭代，但页面内标题层级清晰，可以直接利用浏览器查找功能定位。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">移动端体验如何？</div>
+      <div class="a">窄正文宽度、无弹窗、无横滑模块，在手机浏览器上只需上下滑动即可阅读。字号和间距随屏幕自适应，没有多余的装饰性元素。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">内容更新频率？</div>
+      <div class="a">不定期补充新条目，并根据用户反馈修正已有内容。更注重条目本身的准确性和参考价值，而非更新速度。</div>
+    </div>
+  </section>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <a href="https://site-zh-leyu.com">乐鱼</a>
+    <a href="https://site-zh-leyu.com">乐鱼</a>
+    <a href="https://site-zh-leyu.com">乐鱼</a>
+    <a href="https://site-zh-leyu.com">乐鱼</a>
+  </div>
+  <div class="footer-note">
+    页面仅供索引参考，内容基于公开可查的信息整理。使用时请自行核实关键细节。
+  </div>
+
+</div>
+</body>
+</html>
