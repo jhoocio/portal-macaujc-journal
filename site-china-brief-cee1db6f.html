@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>乐鱼 · 信息卡片</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6fafb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e2b33;
+      padding: 24px 16px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* —— 网格卡片 —— */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 950px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 24px 22px 28px;
+      box-shadow: 0 8px 18px rgba(0, 45, 50, 0.04), 0 2px 8px rgba(0, 60, 70, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #e2edf0;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 105, 110, 0.08), 0 4px 12px rgba(25, 100, 105, 0.04);
+      border-color: #b8dadf;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      display: block;
+      color: #1e7c83;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      color: #194b52;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2d4a52;
+      margin-bottom: 6px;
+    }
+
+    .card small {
+      font-size: 0.85rem;
+      color: #5e7e84;
+      display: block;
+      margin-top: 12px;
+      border-top: 1px dashed #d2e4e8;
+      padding-top: 12px;
+    }
+
+    /* —— hero 区域 —— */
+    .hero {
+      margin: 8px 0 32px;
+      padding: 28px 8px 24px;
+      text-align: center;
+      background: transparent;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #0e434b;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(145deg, #12777e, #1c9ca6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 650;
+    }
+
+    .hero .subhead {
+      font-size: 1.05rem;
+      color: #3a626a;
+      max-width: 600px;
+      margin: 0 auto 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #e3f2f5;
+      padding: 8px 22px;
+      border-radius: 40px;
+      color: #126f77;
+      font-size: 0.9rem;
+      border: 1px solid #b7dbe1;
+    }
+
+    /* —— 自然链接段落 —— */
+    .link-section {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 26px 30px;
+      margin: 24px 0 32px;
+      border: 1px solid #deeef1;
+      box-shadow: 0 6px 16px rgba(0, 55, 60, 0.02);
+    }
+
+    .link-section p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #1e3840;
+    }
+
+    .link-section a {
+      color: #16747c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #aad0d7;
+      padding-bottom: 1px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .link-section a:hover {
+      color: #0b5c63;
+      border-bottom-color: #16747c;
+    }
+
+    /* —— 人群 / 标注 —— */
+    .audience-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 26px 0 10px;
+      background: #edf6f8;
+      border-radius: 32px;
+      padding: 22px 24px;
+      align-items: center;
+      border: 1px solid #c7dfe4;
+    }
+
+    .audience-notes .badge {
+      background: white;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #126169;
+      border: 1px solid #b2d3d9;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      white-space: nowrap;
+    }
+
+    .audience-notes .text-muted {
+      color: #315e66;
+      font-size: 0.95rem;
+    }
+
+    /* —— FAQ 摘要 —— */
+    .faq-mini {
+      margin: 38px 0 20px;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #144d55;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 24px;
+      padding: 16px 22px;
+      margin-bottom: 12px;
+      border: 1px solid #e0f0f3;
+      box-shadow: 0 2px 8px rgba(0,40,45,0.02);
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #164f57;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      color: #2f545c;
+      font-size: 0.92rem;
+    }
+
+    .faq-item .faq-tag {
+      background: #ddeef1;
+      color: #0b5b63;
+      border-radius: 30px;
+      padding: 2px 14px;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* —— 分隔 —— */
+    hr {
+      border: none;
+      border-top: 1px solid #d4e6ea;
+      margin: 28px 0 8px;
+      opacity: 0.6;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64858c;
+      padding: 16px 0 6px;
+      letter-spacing: 0.2px;
+    }
+
+    /* —— 自适应 —— */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 20px 18px 22px;
+      }
+      .link-section {
+        padding: 22px 18px;
+      }
+      .audience-notes {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .faq-item {
+        padding: 14px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>从查询到对照 · <span>乐鱼</span></h1>
+    <p class="subhead">一本随手翻阅的信息卡片集，适合日常检索、延伸阅读，也适合慢慢浏览。</p>
+    <div class="tagline">🌱 温和 · 克制 · 有依据</div>
+  </div>
+
+  <!-- 网格卡片：用途 + 特点 + 适合人群 -->
+  <div class="card-grid">
+
+    <div class="card">
+      <span class="card-icon">📋</span>
+      <h3>日常查询</h3>
+      <p>把零散的知识点整理成条目，方便快速对照。无论是核对基础概念、浏览分类索引，还是查找简单的背景说明，都可以从这里开始。</p>
+      <small>卡片式内容，一次一个小主题</small>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🔍</span>
+      <h3>对照与延伸</h3>
+      <p>并排展示相似信息，帮助你发现异同。同时也预留了延伸阅读的线索，适合在浏览时顺着兴趣继续往下翻。</p>
+      <small>并置式阅读，降低认知负担</small>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">👤</span>
+      <h3>适合人群</h3>
+      <p>喜欢通过卡片获取信息的人、希望快速建立概览的初学者、需要不时回顾对照的普通读者。没有门槛，也无需注册。</p>
+      <small>任何人都可以自由翻阅</small>
+    </div>
+
+  </div>
+
+  <!-- 自然链接段落（嵌入 a 标签） -->
+  <div class="link-section">
+    <p>
+      如果你需要一个可以随时打开、内容结构清晰且没有干扰的信息集合，可以试试 
+      <a href="https://site-china-leyu.com">乐鱼</a>。它采用卡片式布局，每个条目都力求简洁，
+      方便你在零碎时间里随手翻阅，或是专注地作横向比对。页面没有弹窗、自动播放或推送提醒，
+      只保留文字与必要的视觉层次——让阅读回归阅读本身。
+    </p>
+    <p style="margin-top: 16px;">
+      日常使用时，你可以把它当作一本主题卡片簿：从概念条目到对照表，再到简短说明，
+      每一张卡片都经过精简。如果需要更系统的了解，也可以顺着卡片底部的延伸提示继续探索。
+    </p>
+  </div>
+
+  <!-- 人群/场景标注 (卡片式点缀) -->
+  <div class="audience-notes">
+    <span class="badge">📘 学习者</span>
+    <span class="badge">📌 查阅者</span>
+    <span class="badge">🧩 延伸阅读</span>
+    <span class="text-muted">不需要下载 · 不需要登录 · 开卷即用</span>
+  </div>
+
+  <!-- FAQ 摘要  -->
+  <div class="faq-mini">
+    <h2>常见想法 · 快速摘要</h2>
+
+    <div class="faq-item">
+      <strong>信息卡片更新频率如何？</strong>
+      <p>内容会不定期补充和修订，优先修正已有条目的细节。卡片不追求时效性新闻，而是侧重相对稳定的知识类、对照类内容。</p>
+      <span class="faq-tag">持续完善</span>
+    </div>
+
+    <div class="faq-item">
+      <strong>是否适合手机阅读？</strong>
+      <p>页面针对移动端做了适配，卡片自动调整为单列或双列布局，字号与间距也考虑了小屏幕的可读性。桌面端浏览同样舒适。</p>
+      <span class="faq-tag">响应式</span>
+    </div>
+
+    <div class="faq-item">
+      <strong>有搜索或筛选功能吗？</strong>
+      <p>目前以浏览式阅读为主，你可以通过目录或卡片标题快速定位感兴趣的主题。未来不排除加入轻量筛选。</p>
+      <span class="faq-tag">持续迭代</span>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    <span>信息卡片 · 以阅读为原点</span>
+  </div>
+
+</div>
+</body>
+</html>
