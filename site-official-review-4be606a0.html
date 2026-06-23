@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>简洁 · 乐鱼介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(160deg, #fce4b7 0%, #f6d6a8 35%, #f1c896 70%, #ebb982 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      line-height: 1.7;
+      color: #2e241b;
+    }
+
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 251, 245, 0.92);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 36px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 12px 30px rgba(140, 90, 50, 0.16), 0 4px 12px rgba(0,0,0,0.04);
+      transition: box-shadow 0.25s ease;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #3a281f;
+      margin-bottom: 0.25rem;
+      border-left: 6px solid #d9a066;
+      padding-left: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #6f5543;
+      margin: 0.5rem 0 2rem 1.8rem;
+      border-bottom: 1px solid #e7d3bf;
+      padding-bottom: 0.8rem;
+      font-weight: 380;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 2rem 0 0.6rem 0;
+      color: #4e3729;
+      position: relative;
+    }
+
+    h2::before {
+      content: "·";
+      color: #c28a5c;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      word-break: break-word;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      background: #f7efe6;
+      padding: 1rem 1.4rem;
+      border-radius: 28px;
+      border-left: 4px solid #d9a066;
+      margin: 1.5rem 0 2rem 0;
+      color: #3b2c21;
+    }
+
+    .pull-quote {
+      background: #fcf3e9;
+      border-radius: 40px;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0;
+      font-style: normal;
+      font-weight: 410;
+      color: #4e3524;
+      box-shadow: inset 0 -1px 0 #e7cfb9;
+      position: relative;
+      quotes: "“" "”" "‘" "’";
+    }
+
+    .pull-quote::before {
+      content: "“";
+      font-size: 2.8rem;
+      line-height: 1;
+      color: #c98f5f;
+      position: absolute;
+      left: 0.8rem;
+      top: 0.4rem;
+      opacity: 0.3;
+    }
+
+    .pull-quote p {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    a {
+      color: #8e5f3c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #e2c8b0;
+      transition: border-color 0.2s, background 0.15s;
+      border-radius: 20px;
+      padding: 0.12rem 0.5rem;
+      background: transparent;
+    }
+
+    a:hover {
+      border-bottom-color: #b07e57;
+      background: #f7e4d2;
+      color: #553c2b;
+    }
+
+    .button-link {
+      display: inline-block;
+      background: #ebd1ba;
+      color: #3b281d;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 480;
+      border: none;
+      box-shadow: 0 2px 4px rgba(160, 110, 70, 0.08);
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+      border-bottom: 0;
+    }
+
+    .button-link:hover {
+      background: #ddbea2;
+      transform: translateY(-1px);
+    }
+
+    .faq-item {
+      margin: 1.8rem 0 0.8rem 0;
+      background: #fcf6ef;
+      padding: 0.8rem 1.2rem;
+      border-radius: 32px;
+    }
+
+    .faq-q {
+      font-weight: 530;
+      color: #4b3426;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: #5d4534;
+      padding-left: 1rem;
+      border-left: 3px solid #dbb694;
+    }
+
+    .meta-note {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px dashed #dac0ab;
+      font-size: 0.95rem;
+      color: #6f5847;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.8rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        margin-left: 0.8rem;
+        font-size: 1rem;
+      }
+      .lead {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 0.8rem;
+      }
+      .card {
+        border-radius: 28px;
+        padding: 1.5rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>乐鱼 · 一眼明白</h1>
+    <div class="subhead">从名字到用途，两三分钟就能判断</div>
+
+    <p class="lead">
+      刚看到「乐鱼」这个名称，很多人会好奇：这是一个社区？一个工具？还是一个内容平台？<br>
+      下面用最简单的梳理，帮你快速判断这个网站是不是你要找的。
+    </p>
+
+    <h2>它到底做什么</h2>
+    <p>
+      <a href="https://site-official-leyu.com">乐鱼</a> 是一个综合性的线上服务站点，主要围绕信息聚合与轻量互动展开。无论是想了解某个领域的动态，还是寻找某种便捷的线上功能，它都尝试提供一个相对集中的入口。和那些专注单一功能的页面不同，它更像是把几类常见需求放在了一起——你可以把它理解成一个“多用途信息台”。
+    </p>
+
+    <h2>适合哪些场景</h2>
+    <p>
+      假如你平时会同时关注两三个不同方向的资讯，或者偶尔需要快速查找某些生活服务类内容，那么 <a href="https://site-official-leyu.com">乐鱼</a> 的布局可能会让你觉得顺手。它没有过度聚焦在某一个窄众话题上，而是留出了比较宽的使用面。比如你可以在同一站内完成浏览、参考以及基础查询，不用频繁切换窗口。
+    </p>
+
+    <div class="pull-quote">
+      <p>一位偶尔使用的朋友说：“本来以为又要单独注册一个账号，结果发现直接用浏览器打开就行，省了几步。” —— 这种反馈其实挺多。</p>
+    </div>
+
+    <h2>界面与操作感受</h2>
+    <p>
+      页面风格偏向清晰直白，没有过多装饰性元素。导航和内容分区都比较常规，对第一次访问的人很友好。你不太需要看教程就能找到主要功能。整体响应速度在正常网络下比较稳定，没有明显的卡顿或加载延迟。移动端适配做得比较自然，竖屏浏览时排版也不会乱。
+    </p>
+
+    <h2>一点提醒</h2>
+    <p>
+      任何线上站点都有其维护周期和内容更新节奏。<a href="https://site-official-leyu.com">乐鱼</a> 上的信息会随着时间变化而调整，如果你隔了一段时间再去，可能会发现板块或内容重点有了改变。这是正常现象。建议以实际页面显示为准，不必依赖第三方的二手描述。
+    </p>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 常见小疑问</div>
+      <div class="faq-a">
+        <strong>是否需要下载？</strong> 不需要，直接通过浏览器访问即可。<br>
+        <strong>内容偏向什么类型？</strong> 综合类，涵盖资讯、工具索引、简单互动等。<br>
+        <strong>有什么特别的使用技巧？</strong> 利用站内搜索或分类标签可以更快找到目标。
+      </div>
+    </div>
+
+    <p style="margin-top: 2rem;">
+      如果你只是想要一个直接、不绕弯子的线上站点，不妨花两分钟逛一逛 <a href="https://site-official-leyu.com">乐鱼</a>。看看它目前的板块是否符合你的期待——毕竟最可靠的判断，永远来自你自己的浏览体验。
+    </p>
+
+    <div class="meta-note">
+      文章基于实际使用感受 · 内容保持中立
+    </div>
+  </div>
+</body>
+</html>
